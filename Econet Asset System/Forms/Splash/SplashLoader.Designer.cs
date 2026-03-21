@@ -1,4 +1,10 @@
-﻿namespace Econet_Asset_System
+﻿// SplashLoader.Designer.cs
+// Designer-generated file: contains the layout code for the SplashLoader form.
+//
+// - The Visual Studio WinForms Designer normally edits this file. Manual edits are allowed but
+//   may be overwritten by the designer. Prefer changing layout through the Designer UI when possible
+// - This file declares the controls (labels, progress circle, timers) and their visual properties
+namespace Econet_Asset_System
 {
     partial class SplashLoader
     {
@@ -27,9 +33,9 @@
             using (System.Drawing.Drawing2D.LinearGradientBrush brush =
                 new System.Drawing.Drawing2D.LinearGradientBrush(
                     this.ClientRectangle,
-                    System.Drawing.Color.FromArgb(0, 102, 205), // Blue
+                    System.Drawing.Color.White,// Blue
                     System.Drawing.Color.White,                 // White
-                    45F)) // Angle
+                    60F)) // Angle
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
@@ -45,14 +51,17 @@
         {
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             progressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             splashloadingtext = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
             timer1 = new System.Windows.Forms.Timer(components);
             guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(components);
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             progressBar1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
             // 
             // progressBar1
@@ -82,27 +91,13 @@
             // 
             splashloadingtext.Anchor = AnchorStyles.None;
             splashloadingtext.BackColor = Color.Transparent;
-            splashloadingtext.ForeColor = SystemColors.ButtonFace;
+            splashloadingtext.ForeColor = Color.Red;
             splashloadingtext.Location = new Point(65, 79);
             splashloadingtext.Name = "splashloadingtext";
-            splashloadingtext.Size = new Size(55, 17);
+            splashloadingtext.Size = new Size(68, 23);
             splashloadingtext.TabIndex = 2;
             splashloadingtext.Text = "Loading...";
             splashloadingtext.TextAlignment = ContentAlignment.MiddleCenter;
-            // 
-            // lblTitle
-            // 
-            lblTitle.Anchor = AnchorStyles.None;
-            lblTitle.BackColor = Color.Transparent;
-            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(247, 12);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(343, 39);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "Econet Asset Management";
-            lblTitle.TextAlignment = ContentAlignment.TopCenter;
-            lblTitle.Click += lblTitle_Click;
             // 
             // lblStatus
             // 
@@ -131,24 +126,40 @@
             // 
             guna2ShadowForm1.TargetForm = this;
             // 
+            // guna2PictureBox1
+            // 
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.CustomizableEdges = customizableEdges2;
+            guna2PictureBox1.Image = Properties.Resources.econet_wireless_seeklogo;
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(632, 10);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            guna2PictureBox1.Size = new Size(166, 36);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox1.TabIndex = 4;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.Click += guna2PictureBox1_Click;
+            // 
             // SplashLoader
             // 
             AccessibleRole = AccessibleRole.TitleBar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 578);
+            Controls.Add(guna2PictureBox1);
             Controls.Add(lblStatus);
-            Controls.Add(lblTitle);
             Controls.Add(progressBar1);
             Cursor = Cursors.AppStarting;
             FormBorderStyle = FormBorderStyle.None;
             Name = "SplashLoader";
-            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Loader";
             Load += SplashLoader_Load;
             progressBar1.ResumeLayout(false);
             progressBar1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,11 +167,11 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2CircleProgressBar progressBar1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblStatus;
         private Guna.UI2.WinForms.Guna2HtmlLabel splashloadingtext;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

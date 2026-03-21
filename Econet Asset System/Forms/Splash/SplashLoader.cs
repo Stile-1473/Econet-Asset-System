@@ -1,13 +1,13 @@
 // This allows us to use the LoginForm from the Authentication folder
 using Econet_Asset_System.Forms.Authentication;
 
-// Basic system functionalities (like EventArgs)
+// Basic system functionalities 
 using System;
 
 // Needed to import Windows API functions (for rounded corners)
 using System.Runtime.InteropServices;
 
-// WinForms library (Forms, Timer, ProgressBar, etc.)
+// WinForms library (Forms, Timer, ProgressBar)
 using System.Windows.Forms;
 
 namespace Econet_Asset_System
@@ -16,7 +16,7 @@ namespace Econet_Asset_System
     public partial class SplashLoader : Form
     {
         // Importing a Windows function that allows us to create rounded corners
-        // This is not C# code — it's from Windows itself
+        // This is not C# code  it's from Windows itself
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         // This method defines how the rounded shape will be created
@@ -34,14 +34,14 @@ namespace Econet_Asset_System
         private int dotCounter = 0;
         private int tickCounter = 0;
 
-        // Constructor: runs immediately when SplashLoader starts
+        // Constructor runs immediately when SplashLoader starts
         public SplashLoader()
         {
             InitializeComponent(); // Loads all controls from designer
 
             // Apply rounded corners to the form
             Region = System.Drawing.Region.FromHrgn(
-                CreateRoundRectRgn(0, 0, Width, Height, 25, 25)
+                CreateRoundRectRgn(0, 0, Width, Height, 20, 20)
             );
 
             // Set up progress bar range
@@ -57,7 +57,7 @@ namespace Econet_Asset_System
 
             // Fade timer used for smooth transition to login
             fadeTimer = new System.Windows.Forms.Timer();
-            fadeTimer.Interval = 20; // smooth fade
+            fadeTimer.Interval = 20;
             fadeTimer.Tick += FadeTimer_Tick;
 
             // Improve rendering
@@ -83,7 +83,7 @@ namespace Econet_Asset_System
                 string dots = new string('.', dotCounter);
                 splashloadingtext.Text = $"{progressBar1.Value}%{dots}";
 
-                // Dynamic loading messages (kept short)
+                // Dynamic loading messages 
                 if (progressBar1.Value < 30)
                     lblStatus.Text = "Initializing system" + dots;
                 else if (progressBar1.Value < 60)
@@ -114,32 +114,57 @@ namespace Econet_Asset_System
             else
             {
                 fadeTimer.Stop();
-                // Ensure fully invisible
+                // Ensure fully invisible then close splash to return control to Program.Main
                 this.Opacity = 0;
-
-                // Show login and close splash
-                LoginForm login = new LoginForm();
-                login.Show();
                 this.Close();
             }
         }
 
-        // This event is triggered when progress changes (not needed here)
+        // This event is triggered when progress changes 
         private void progressBar1_ValueChanged(object sender, EventArgs e)
         {
-            // You can safely remove this if not used
+
         }
 
-        // Runs when the form loads (currently empty, but useful later)
-        private void SplashLoader_Load(object sender, EventArgs e)
-        {
-            // Add system name dynamically
-            lblTitle.Text = "Econet Wireless Telecoms";
-        }
+     
 
         private void lblTitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Designer references SplashLoader_Load; implement to avoid designer/build error
+        private void SplashLoader_Load(object sender, EventArgs e)
+        {
+            // If the picture was not loaded from resources (missing embedded file)
+            // try to find the image file in a Resources folder up the directory tree
+            try
+            {
+                if (guna2PictureBox1.Image == null)
+                {
+                    string fileName = "econet-wireless-seeklogo.png";
+                    string dir = AppDomain.CurrentDomain.BaseDirectory;
+                    for (int i = 0; i < 6 && dir != null; i++)
+                    {
+                        string candidate = System.IO.Path.Combine(dir, "Resources", fileName);
+                        if (System.IO.File.Exists(candidate))
+                        {
+                            guna2PictureBox1.Image = System.Drawing.Image.FromFile(candidate);
+                            break;
+                        }
+                        dir = System.IO.Path.GetDirectoryName(dir);
+                    }
+                }
+            }
+            catch
+            {
+                // Swallow exceptions here; missing image should not crash the designer or app.
+            }
         }
     }
 }

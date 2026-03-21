@@ -1,3 +1,11 @@
+// Program.cs
+// Purpose: Application entry point. Sets up Visual Styles and starts the app
+// 
+// - Main() is where Windows hands control to  application
+// - ApplicationConfiguration.Initialize() sets defaults (DPI awareness, default fonts) for modern WinForms apps.
+// - Instead of passing a Form to Application.Run, we use an ApplicationContext (AppContext) that
+//   controls which forms are shown and when the application should exit.
+
 namespace Econet_Asset_System
 {
     internal static class Program
@@ -8,10 +16,11 @@ namespace Econet_Asset_System
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Initialize application configuration (DPI, default fonts, etc.).
             ApplicationConfiguration.Initialize();
-            Application.Run(new SplashLoader());
+
+            // Run the application with a custom ApplicationContext that handles the splash and login forms.
+            Application.Run(new AppContext());
         }
     }
 }
