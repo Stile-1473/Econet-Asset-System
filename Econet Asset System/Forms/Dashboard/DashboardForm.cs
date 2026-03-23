@@ -21,10 +21,14 @@ namespace Econet_Asset_System.Forms.Dashboard
 {
     public partial class DashboardForm : Form
     {
+
+        //This is the constructor
         public DashboardForm()
-        {
+{
+          //this method builds the dashboard controls from the designer
             InitializeComponent();
 
+            //each button in the system is connecte to its click method
             dashboardLinkBtn.Click += dashboardLinkBtn_Click;
             assetLinkBtn.Click += assetsLinkBtn_Click;
             maintenanceLinkBtn.Click += maintenanceLinkBtn_Click;
@@ -36,16 +40,21 @@ namespace Econet_Asset_System.Forms.Dashboard
 
         }
 
+        //this loads the dashboard
         private void Dashboard_Load(object sender, EventArgs e)
         {
-
+            ResetSidebarButtons();
+            dashboardLinkBtn.FillColor = Color.FromArgb(0, 102, 204);
+            ShowDashboardHome();
         }
 
 
         //method to load the form into the panel this code removes current content
-       // prepares the new form to behave like a panel
+      //it receives a form as a parameter
+        // prepares the new form to behave like a panel
 //docks it inside mainPanel
 //shows it
+
         private void loadPage(Form page) { 
 
             mainPanel.Controls.Clear();
@@ -139,6 +148,7 @@ namespace Econet_Asset_System.Forms.Dashboard
         }
 
 
+        //restores the dashboard cards and panels afterr another page was openeed
 
         private void ShowDashboardHome()
         {
@@ -159,13 +169,12 @@ namespace Econet_Asset_System.Forms.Dashboard
             mainPanel.Controls.Add(alertsPanel);
         }
 
-
+        //makes all buttons transparents
         private void ResetSidebarButtons() {
 
 
             dashboardLinkBtn.FillColor = Color.Transparent;
             assetLinkBtn.FillColor = Color.Transparent;
-            settingsLinkBtn.FillColor = Color.Transparent;
             assignmentLinkBtn.FillColor = Color.Transparent;
             maintenanceLinkBtn.FillColor = Color.Transparent;
             locationLinkBtn.FillColor = Color.Transparent;
