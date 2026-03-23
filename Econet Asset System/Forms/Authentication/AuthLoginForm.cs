@@ -2,6 +2,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Econet_Asset_System.Forms.Dashboard;
 
 namespace Econet_Asset_System.Forms.Authentication
 {
@@ -289,7 +290,10 @@ namespace Econet_Asset_System.Forms.Authentication
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-
+            DashboardForm dashboard = new DashboardForm();
+            dashboard.FormClosed += (s,args) => this.Close();
+            dashboard.Show();
+            this.Hide();
         }
     }
 }
