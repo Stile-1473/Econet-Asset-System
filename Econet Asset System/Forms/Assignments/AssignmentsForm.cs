@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace Econet_Asset_System.Forms.Assignments
 {
-    public partial class Assignments : Form
+    public partial class AssignmentsForm : Form
     {
-        public Assignments()
+        public AssignmentsForm()
         {
             InitializeComponent();
         }

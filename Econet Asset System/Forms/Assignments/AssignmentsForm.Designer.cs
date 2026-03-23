@@ -1,6 +1,6 @@
 ﻿namespace Econet_Asset_System.Forms.Assignments
 {
-    partial class Assignments
+    partial class AssignmentsForm
     {
         /// <summary>
         /// Required designer variable.

@@ -94,7 +94,7 @@ namespace Econet_Asset_System.Forms.Dashboard
         private void assignmentLinkBtn_Click(object sender, EventArgs e) {
             ResetSidebarButtons();
             assignmentLinkBtn.FillColor = Color.FromArgb(0, 102, 204);
-            loadPage(new AssetsForm());
+            loadPage(new AssignmentsForm());
         }
 
         private void settingsLinkBtn_Click(object sender, EventArgs e) {

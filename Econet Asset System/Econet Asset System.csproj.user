@@ -4,7 +4,7 @@
     <Compile Update="Forms\Assets\AssetsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Assignments\Assignments.cs">
+    <Compile Update="Forms\Assignments\AssignmentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\Authentication\AuthLoginForm.cs">
