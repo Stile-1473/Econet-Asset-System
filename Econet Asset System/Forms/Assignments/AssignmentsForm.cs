@@ -85,5 +85,10 @@ namespace Econet_Asset_System.Forms.Assignments
         {
 
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
